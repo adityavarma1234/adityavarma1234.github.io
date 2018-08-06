@@ -1,5 +1,6 @@
 name: Aditya Varma
 markdown: kramdown
 permalink: /blog/:year/:month/:day/:title
+url: 'http://adityavarma1234.github.io'
 plugins:
   - jekyll-sitemap
