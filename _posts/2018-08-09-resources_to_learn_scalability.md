@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'Scalability resources'
-data: 2018-09-06
+data: 2018-08-09
 ---
 
 * High scalability by Todd Hoff [link](http://highscalability.com/)
