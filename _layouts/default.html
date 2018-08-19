@@ -1,11 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>{{ page.title }}</title>
-    <link rel="stylesheet" type="text/css" href="/css/main.css">
-    {% include analytics.html %}
-  </head>
-
+  {% include head.html %}
   <body>
     <nav>
       <ul>
@@ -24,5 +19,6 @@
         <li><a href="https://github.com/adityavarma1234">github.com/adityavarma1234</a></li>
       </ul>
     </footer>
+    {% include scripts.html %}
   </body>
 </html>
