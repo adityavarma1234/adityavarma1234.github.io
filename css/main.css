@@ -41,3 +41,60 @@ ul.posts {
 ul.posts li {
     list-style: none;
 }
+
+.resume {
+    font-family: 'Helvetica', 'Arial', 'Sans-Serif';
+    color: #333;
+}
+.resume h1 {
+    font-size: 2em;
+    margin-bottom: 0.2em;
+}
+.resume-contact {
+    font-size: 1em;
+    color: #666;
+    margin: 0 0 0.8em;
+}
+.resume-download {
+    display: inline-block;
+    padding: 0.4em 1em;
+    border: 1px solid #999;
+    border-radius: 4px;
+    font-weight: bold;
+    color: #333;
+}
+.resume-download:hover {
+    background: #333;
+    color: #fff;
+    text-decoration: none;
+}
+.resume-updated {
+    font-size: 0.9em;
+    color: #999;
+    margin-top: 0.6em;
+}
+.resume h2 {
+    font-size: 1.3em;
+    border-bottom: 2px solid #333;
+    padding-bottom: 0.2em;
+    margin-top: 1.6em;
+}
+.resume h3 {
+    font-size: 1.1em;
+    margin-bottom: 0.2em;
+}
+.resume-dates {
+    font-weight: normal;
+    color: #666;
+    font-size: 0.9em;
+}
+.resume p, .resume li {
+    font-size: 1em;
+    line-height: 1.5em;
+}
+.resume-entry {
+    margin-bottom: 1.2em;
+}
+.resume ul {
+    margin-top: 0.3em;
+}
