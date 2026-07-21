@@ -1,0 +1,18 @@
+<div class="sidebar-inner">
+  {% if site.author.avatar %}
+  <img class="avatar" src="{{ site.author.avatar }}" alt="{{ site.author.name }}">
+  {% else %}
+  <div class="avatar avatar-placeholder">{{ site.author.initials }}</div>
+  {% endif %}
+
+  <h2 class="sidebar-name">{{ site.author.name }}</h2>
+  {% if site.author.title %}<p class="sidebar-title">{{ site.author.title }}</p>{% endif %}
+  {% if site.author.bio %}<p class="sidebar-bio">{{ site.author.bio }}</p>{% endif %}
+
+  <ul class="sidebar-meta">
+    {% if site.author.location %}<li class="sidebar-location">{{ site.author.location }}</li>{% endif %}
+    {% if site.author.email %}<li><a href="mailto:{{ site.author.email }}">Email</a></li>{% endif %}
+    {% if site.author.linkedin %}<li><a href="{{ site.author.linkedin }}">LinkedIn</a></li>{% endif %}
+    {% if site.author.github %}<li><a href="{{ site.author.github }}">GitHub</a></li>{% endif %}
+  </ul>
+</div>
