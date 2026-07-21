@@ -1,37 +1,52 @@
-## Welcome to GitHub Pages
+# Aditya Varma — Personal Site
 
-You can use the [editor on GitHub](https://github.com/adityavarma1234/adityavarma1234.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+Personal portfolio and blog for **Emmadishetty Sri Aditya Varma**, Engineering Manager with 10+ years of experience across engineering leadership and senior IC roles at Amazon, MoEngage, GrabOnRent, and Zoomcar.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+🔗 **Live site:** https://adityavarma1234.github.io
+💼 **LinkedIn:** https://linkedin.com/in/adityavarma3
+📄 **Resume/CV:** [`/cv`](./cv)
 
-### Markdown
+---
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## About
 
-```markdown
-Syntax highlighted code block
+This site is my professional home on the web — background, experience, selected work, and occasional writing on engineering leadership, distributed systems, and my ongoing M.Tech coursework in AI/ML.
 
-# Header 1
-## Header 2
-### Header 3
+**Currently:** Engineering Manager, actively exploring new opportunities in engineering leadership and Python/full-stack backend roles.
 
-- Bulleted
-- List
+## What's here
 
-1. Numbered
-2. List
+| Path | Description |
+|---|---|
+| `/about` | Background, experience summary |
+| `/blog`, `/_posts` | Blog posts |
+| `/cv` | Resume / CV |
+| `/pdf` | Downloadable PDF assets |
+| `/assets`, `/css` | Site assets and styling |
+| `/_layouts`, `/_includes` | Jekyll templates |
 
-**Bold** and _Italic_ and `Code` text
+## Built with
 
-[Link](url) and ![Image](src)
+- [Jekyll](https://jekyllrb.com/) — static site generator
+- [GitHub Pages](https://pages.github.com/) — hosting
+- HTML / CSS
+
+## Running locally
+
+```bash
+git clone https://github.com/adityavarma1234/adityavarma1234.github.io.git
+cd adityavarma1234.github.io
+bundle install
+bundle exec jekyll serve
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+Then visit `http://localhost:4000`.
 
-### Jekyll Themes
+## Contact
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/adityavarma1234/adityavarma1234.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+- Email: nitbaditya@gmail.com
+- LinkedIn: [linkedin.com/in/adityavarma3](https://linkedin.com/in/adityavarma3)
 
-### Support or Contact
+---
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+*Feedback and PRs (typos, broken links) are welcome — this repo also gets occasional contributions as a first-open-source-PR playground.*
