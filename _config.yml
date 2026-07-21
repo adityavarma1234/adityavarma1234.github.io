@@ -4,3 +4,19 @@ permalink: /blog/:year/:month/:day/:title
 url: 'http://adityavarma1234.github.io'
 plugins:
   - jekyll-sitemap
+
+author:
+  name: Aditya Varma
+  initials: AV
+  title: Engineering Manager
+  # Drop a photo in /assets (e.g. assets/profile.jpg) and set the path below.
+  # Leave blank to show the initials avatar instead.
+  avatar:
+  location: Hyderabad, India
+  email: nitbaditya@gmail.com
+  linkedin: https://linkedin.com/in/adityavarma3
+  github: https://github.com/adityavarma1234
+  bio: >
+    Engineering Manager with 10+ years across full-stack product and distributed
+    systems. Pursuing an M.Tech in AI/ML at BITS Pilani, with an AI-first
+    engineering practice built around Claude Code.
