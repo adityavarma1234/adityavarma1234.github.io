@@ -9,9 +9,9 @@ author:
   name: Aditya Varma
   initials: AV
   title: Engineering Manager
-  # Drop a photo in /assets (e.g. assets/profile.jpg) and set the path below.
-  # Leave blank to show the initials avatar instead.
-  avatar:
+  # Placeholder until a real photo is added — drop it in /assets (e.g. assets/profile.jpg)
+  # and update the path below. Leave blank to show the initials avatar instead.
+  avatar: /assets/profile.png
   location: Hyderabad, India
   email: nitbaditya@gmail.com
   linkedin: https://linkedin.com/in/adityavarma3
