@@ -111,7 +111,7 @@ with mostly-empty responses. It's simple but not truly real-time.
 
 ```mermaid
 sequenceDiagram
-    participant B as User B (client)
+    participant B as User B
     participant S as Server
 
     loop every few seconds
@@ -137,7 +137,7 @@ is wasteful.
 
 ```mermaid
 sequenceDiagram
-    participant B as User B (client)
+    participant B as User B
     participant S as Server
 
     B->>S: GET /messages?channel_id=X&from=Y
@@ -159,7 +159,7 @@ client still needs a separate channel to send messages.)
 
 ```mermaid
 sequenceDiagram
-    participant B as User B (client)
+    participant B as User B
     participant S as Server
 
     B->>S: WebSocket handshake (upgrade)
@@ -225,7 +225,7 @@ algorithmic feeds).
 
 ```mermaid
 flowchart TB
-    A[User A sends to #channel] --> CS[Chat Service]
+    A[User A sends to Channel] --> CS[Chat Service]
     CS -->|1. persist| DB[(Database)]
     CS -->|2. publish to channel topic| MB[(Message Broker)]
 
