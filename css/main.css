@@ -413,6 +413,36 @@ ul.posts li span:first-child {
     text-decoration: none;
 }
 
+/* Papers */
+.papers-section {
+    margin: 32px 0 0;
+}
+.papers-todo {
+    color: var(--text-muted);
+    font-style: italic;
+}
+.papers-list {
+    margin: 16px 0 0;
+    padding: 0;
+    list-style: none;
+}
+.paper-card {
+    padding: 16px;
+    margin-bottom: 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--bg-alt);
+}
+.paper-title {
+    font-size: 1em;
+    margin: 0;
+}
+.paper-meta {
+    color: var(--text-muted);
+    font-size: 0.9em;
+    margin: 6px 0 0;
+}
+
 /* Responsive */
 @media (max-width: 760px) {
     .page {
