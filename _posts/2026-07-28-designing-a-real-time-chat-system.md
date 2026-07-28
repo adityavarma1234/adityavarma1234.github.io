@@ -4,8 +4,6 @@ title: 'Designing a Real-Time Chat System (Slack-style)'
 date: 2026-07-28
 ---
 
-# Designing a Real-Time Chat System (Slack-style)
-
 This is a write-up of a system design exercise I worked through for real-time
 communication between users, modeled loosely on Slack. It covers the
 requirements, the evolution from polling to WebSockets, how to scale
