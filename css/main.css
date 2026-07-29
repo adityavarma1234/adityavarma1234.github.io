@@ -207,6 +207,24 @@ nav ul li a.active {
     min-width: 0;
 }
 
+.page--no-sidebar {
+    max-width: 900px;
+}
+
+.post-back {
+    display: inline-block;
+    margin-bottom: 24px;
+    font-size: 0.95em;
+    color: var(--text-muted);
+    text-decoration: none;
+}
+.post-back:hover {
+    color: var(--accent);
+}
+.post-back-bottom {
+    margin-top: 40px;
+}
+
 /* Headings & text */
 h1 {
     font-size: 2.2em;

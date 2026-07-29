@@ -19,10 +19,12 @@
         </button>
       </div>
     </nav>
-    <div class="page">
+    <div class="page{% if page.layout == 'post' %} page--no-sidebar{% endif %}">
+      {% unless page.layout == 'post' %}
       <aside class="sidebar">
         {% include sidebar.html %}
       </aside>
+      {% endunless %}
       <div class="container">
         {{ content }}
       </div>
