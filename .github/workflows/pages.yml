@@ -31,6 +31,12 @@ jobs:
           bundler-cache: true
 
       - name: Fetch Goodreads data
+        # Goodreads is an external dependency outside our control (outage,
+        # rate limit/WAF block, markup change). Don't let a failure here
+        # block deploying unrelated content changes — but let the step
+        # itself show red in the Actions tab so a real failure is visible
+        # instead of being silently swallowed.
+        continue-on-error: true
         run: ruby script/fetch_goodreads.rb
 
       - name: Build with Jekyll

@@ -20,10 +20,16 @@ SHELVES = %w[currently-reading read to-read]
 def fetch_page(shelf, page)
   uri = URI("https://www.goodreads.com/review/list_rss/#{USER_ID}?shelf=#{shelf}&page=#{page}")
   request = Net::HTTP::Get.new(uri)
-  request["User-Agent"] = "Mozilla/5.0 (compatible; goodreads-fetch-script)"
+  # A generic/scripty User-Agent is more likely to get blocked by Goodreads'
+  # (Amazon/CloudFront) edge WAF than a normal browser UA, especially from
+  # datacenter IP ranges like GitHub Actions runners use.
+  request["User-Agent"] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
+  request["Accept"] = "application/rss+xml, application/xml;q=0.9, */*;q=0.8"
 
   response = Net::HTTP.start(uri.host, uri.port, use_ssl: true) { |http| http.request(request) }
-  raise "Goodreads RSS request failed for shelf=#{shelf} page=#{page}: #{response.code}" unless response.is_a?(Net::HTTPSuccess)
+  unless response.is_a?(Net::HTTPSuccess)
+    raise "Goodreads RSS request failed for shelf=#{shelf} page=#{page}: #{response.code} #{response.message}\n#{response.body&.slice(0, 500)}"
+  end
 
   doc = REXML::Document.new(response.body)
   REXML::XPath.match(doc, "//item").map do |item|
@@ -53,36 +59,28 @@ def fetch_shelf(shelf)
   books
 end
 
-begin
-  shelves = SHELVES.each_with_object({}) { |shelf, memo| memo[shelf] = fetch_shelf(shelf) }
+shelves = SHELVES.each_with_object({}) { |shelf, memo| memo[shelf] = fetch_shelf(shelf) }
 
-  currently_reading = shelves["currently-reading"]
-    .sort_by { |b| Time.parse(b["date_added"]) rescue Time.at(0) }
-    .reverse
+currently_reading = shelves["currently-reading"]
+  .sort_by { |b| Time.parse(b["date_added"]) rescue Time.at(0) }
+  .reverse
 
-  recently_read = shelves["read"]
-    .sort_by { |b| Time.parse(b["read_at"] || b["date_added"]) rescue Time.at(0) }
-    .reverse
-    .first(6)
+recently_read = shelves["read"]
+  .sort_by { |b| Time.parse(b["read_at"] || b["date_added"]) rescue Time.at(0) }
+  .reverse
+  .first(6)
 
-  data = {
-    "updated_at" => Time.now.utc.iso8601,
-    "profile_url" => PROFILE_URL,
-    "shelf_counts" => {
-      "currently_reading" => shelves["currently-reading"].size,
-      "read" => shelves["read"].size,
-      "to_read" => shelves["to-read"].size,
-    },
-    "currently_reading" => currently_reading,
-    "recently_read" => recently_read,
-  }
+data = {
+  "updated_at" => Time.now.utc.iso8601,
+  "profile_url" => PROFILE_URL,
+  "shelf_counts" => {
+    "currently_reading" => shelves["currently-reading"].size,
+    "read" => shelves["read"].size,
+    "to_read" => shelves["to-read"].size,
+  },
+  "currently_reading" => currently_reading,
+  "recently_read" => recently_read,
+}
 
-  File.write(File.join(__dir__, "..", "_data", "goodreads.yml"), data.to_yaml)
-  puts "Wrote _data/goodreads.yml (#{data["shelf_counts"]})"
-rescue StandardError => e
-  # Goodreads is an external dependency outside our control (outage, rate
-  # limit, markup change). A failure here should never take down the rest
-  # of the site's build/deploy — the books page falls back to a plain
-  # profile link when _data/goodreads.yml is absent. Exit 0 on purpose.
-  warn "Skipping Goodreads sync: #{e.class}: #{e.message}"
-end
+File.write(File.join(__dir__, "..", "_data", "goodreads.yml"), data.to_yaml)
+puts "Wrote _data/goodreads.yml (#{data["shelf_counts"]})"
