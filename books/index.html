@@ -5,6 +5,55 @@ title: Books I've read
 <h1>Books I've read</h1>
 <p class="meta">A running list of books I've enjoyed and would recommend.</p>
 
+{% assign gr = site.data.goodreads %}
+<section class="goodreads-section">
+  <h2>On Goodreads</h2>
+  {% if gr %}
+  <p class="goodreads-stats">
+    <a href="{{ gr.profile_url }}" target="_blank" rel="noopener">My Goodreads profile</a>
+    &mdash;
+    {{ gr.shelf_counts.read }} read &middot;
+    {{ gr.shelf_counts.currently_reading }} currently reading &middot;
+    {{ gr.shelf_counts.to_read }} want to read
+  </p>
+
+  {% if gr.currently_reading and gr.currently_reading.size > 0 %}
+  <h3 class="goodreads-subheading">Currently Reading</h3>
+  <ul class="books-grid">
+    {% for book in gr.currently_reading %}
+    <li class="book-card">
+      <img class="book-cover" src="{{ book.image }}" alt="Cover of {{ book.title }} by {{ book.author }}" loading="lazy">
+      <h4 class="book-title">{{ book.title }}</h4>
+      <p class="book-author">{{ book.author }}</p>
+      <a class="book-buy-link" href="{{ book.link }}" target="_blank" rel="noopener">View on Goodreads</a>
+    </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+
+  {% if gr.recently_read and gr.recently_read.size > 0 %}
+  <h3 class="goodreads-subheading">Recently Finished</h3>
+  <ul class="books-grid">
+    {% for book in gr.recently_read %}
+    <li class="book-card">
+      <img class="book-cover" src="{{ book.image }}" alt="Cover of {{ book.title }} by {{ book.author }}" loading="lazy">
+      <h4 class="book-title">{{ book.title }}</h4>
+      <p class="book-author">{{ book.author }}</p>
+      <a class="book-buy-link" href="{{ book.link }}" target="_blank" rel="noopener">View on Goodreads</a>
+    </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+
+  <p class="goodreads-updated">Synced from Goodreads {{ gr.updated_at | date: "%b %-d, %Y" }}.</p>
+  {% else %}
+  <p class="goodreads-stats">
+    <a href="https://www.goodreads.com/adityavarma1234" target="_blank" rel="noopener">My Goodreads profile</a>
+  </p>
+  {% endif %}
+</section>
+
+<h2 class="goodreads-subheading">Favorites</h2>
 <ul class="books-grid">
   <li class="book-card">
     <img class="book-cover" src="/assets/books/practical-vim.jpg" alt="Cover of Practical Vim by Drew Neil">
