@@ -12,6 +12,7 @@ require "uri"
 require "rexml/document"
 require "yaml"
 require "time"
+require "fileutils"
 
 USER_ID = "62461817"
 PROFILE_URL = "https://www.goodreads.com/adityavarma1234"
@@ -82,5 +83,7 @@ data = {
   "recently_read" => recently_read,
 }
 
-File.write(File.join(__dir__, "..", "_data", "goodreads.yml"), data.to_yaml)
+data_dir = File.join(__dir__, "..", "_data")
+FileUtils.mkdir_p(data_dir)
+File.write(File.join(data_dir, "goodreads.yml"), data.to_yaml)
 puts "Wrote _data/goodreads.yml (#{data["shelf_counts"]})"
