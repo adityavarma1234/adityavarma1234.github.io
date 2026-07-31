@@ -25,7 +25,7 @@ The initial idea was the simplest thing that could work: dump the dictionary int
 
 ```mermaid
 flowchart LR
-    Client -->|get(word)| CDN
+    Client -->|"get(word)"| CDN
     CDN --> API
     API -->|word: address index| Disk[File Dist.]
     S3((S3)) -.-> API
