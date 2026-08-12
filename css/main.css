@@ -479,6 +479,67 @@ ul.posts li span:first-child {
     font-size: 0.9em;
     margin: 6px 0 0;
 }
+.paper-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 10px 0 0;
+    padding: 0;
+    list-style: none;
+}
+.paper-tag {
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 0.78em;
+}
+.papers-search {
+    margin: 16px 0 0;
+}
+.papers-search-input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 8px 12px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 0.95em;
+}
+.papers-search-input:focus {
+    outline: none;
+    border-color: var(--text-muted);
+}
+.papers-tag-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+}
+.papers-tag-filter {
+    padding: 3px 10px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--bg-alt);
+    color: var(--text-muted);
+    font-size: 0.8em;
+    cursor: pointer;
+}
+.papers-tag-filter:hover {
+    border-color: var(--text-muted);
+}
+.papers-tag-filter.is-active {
+    background: var(--text);
+    color: var(--bg);
+    border-color: var(--text);
+}
+.papers-empty {
+    color: var(--text-muted);
+    font-style: italic;
+    margin: 16px 0 0;
+}
 
 /* Responsive */
 @media (max-width: 760px) {

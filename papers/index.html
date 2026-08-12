@@ -12,34 +12,144 @@ title: Research Papers
 
 <section class="papers-section">
   <h2>Recommended Reading</h2>
-  <ul class="papers-list">
-    <li class="paper-card">
+
+  <div class="papers-search">
+    <input type="search" id="papers-search-input" class="papers-search-input" placeholder="Search papers by title, author, or tag&hellip;" aria-label="Search papers">
+    <div id="papers-tag-filters" class="papers-tag-filters"></div>
+  </div>
+  <p id="papers-empty" class="papers-empty" hidden>No papers match your search.</p>
+
+  <ul class="papers-list" id="papers-list">
+    <li class="paper-card" data-tags="databases, columnar-storage, systems">
       <h3 class="paper-title"><a href="https://web.stanford.edu/class/cs345d-01/rl/cstore.pdf" target="_blank" rel="noopener">C-Store: A Column-oriented DBMS</a></h3>
       <p class="paper-meta">Stonebraker et al. &mdash; the foundational paper introducing the column-oriented DBMS architecture.</p>
+      <ul class="paper-tags">
+        <li class="paper-tag">databases</li>
+        <li class="paper-tag">columnar-storage</li>
+        <li class="paper-tag">systems</li>
+      </ul>
     </li>
-    <li class="paper-card">
+    <li class="paper-card" data-tags="networking, load-balancing, distributed-systems">
       <h3 class="paper-title"><a href="https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/44824.pdf" target="_blank" rel="noopener">Maglev: A Fast and Reliable Software Network Load Balancer</a></h3>
       <p class="paper-meta">Eisenbud et al. (Google) &mdash; how Google built a software load balancer that scales out via consistent hashing and ECMP, with no single point of failure.</p>
+      <ul class="paper-tags">
+        <li class="paper-tag">networking</li>
+        <li class="paper-tag">load-balancing</li>
+        <li class="paper-tag">distributed-systems</li>
+      </ul>
     </li>
-    <li class="paper-card">
+    <li class="paper-card" data-tags="distributed-systems, consensus, systems">
       <h3 class="paper-title"><a href="https://static.googleusercontent.com/media/research.google.com/en//archive/chubby-osdi06.pdf" target="_blank" rel="noopener">The Chubby Lock Service for Loosely-Coupled Distributed Systems</a></h3>
       <p class="paper-meta">Burrows (Google) &mdash; the design of Google's distributed lock service, and why coarse-grained locking and small-file storage turned out to be the right abstraction for coordinating distributed systems.</p>
+      <ul class="paper-tags">
+        <li class="paper-tag">distributed-systems</li>
+        <li class="paper-tag">consensus</li>
+        <li class="paper-tag">systems</li>
+      </ul>
     </li>
-    <li class="paper-card">
+    <li class="paper-card" data-tags="machine-learning, nlp, embeddings">
       <h3 class="paper-title"><a href="https://arxiv.org/pdf/1301.3781" target="_blank" rel="noopener">Efficient Estimation of Word Representations in Vector Space</a></h3>
       <p class="paper-meta">Mikolov et al. (Google) &mdash; introduces word2vec, the CBOW and skip-gram architectures that learn dense word embeddings efficiently from large corpora.</p>
+      <ul class="paper-tags">
+        <li class="paper-tag">machine-learning</li>
+        <li class="paper-tag">nlp</li>
+        <li class="paper-tag">embeddings</li>
+      </ul>
     </li>
-    <li class="paper-card">
+    <li class="paper-card" data-tags="distributed-systems, cloud-storage, databases">
       <h3 class="paper-title"><a href="https://azure.microsoft.com/en-us/blog/sosp-paper-windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency/" target="_blank" rel="noopener">Windows Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency</a></h3>
       <p class="paper-meta">Calder et al. (Microsoft) &mdash; the SOSP 2011 paper on how Azure Storage delivers strong consistency and high availability at scale, via its layered stream/partition architecture.</p>
+      <ul class="paper-tags">
+        <li class="paper-tag">distributed-systems</li>
+        <li class="paper-tag">cloud-storage</li>
+        <li class="paper-tag">databases</li>
+      </ul>
     </li>
-    <li class="paper-card">
+    <li class="paper-card" data-tags="databases, real-time-analytics, systems">
       <h3 class="paper-title"><a href="https://research.facebook.com/publications/scuba-diving-into-data-at-facebook/" target="_blank" rel="noopener">Scuba: Diving into Data at Facebook</a></h3>
       <p class="paper-meta">Abraham et al. (Facebook) &mdash; the design of Scuba, Facebook's in-memory database for real-time, ad-hoc analysis over fast-changing data at scale.</p>
+      <ul class="paper-tags">
+        <li class="paper-tag">databases</li>
+        <li class="paper-tag">real-time-analytics</li>
+        <li class="paper-tag">systems</li>
+      </ul>
     </li>
-    <li class="paper-card">
+    <li class="paper-card" data-tags="machine-learning, computer-vision, transformers">
       <h3 class="paper-title"><a href="https://arxiv.org/pdf/2010.11929" target="_blank" rel="noopener">An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale</a></h3>
       <p class="paper-meta">Dosovitskiy et al. (Google) &mdash; introduces the Vision Transformer (ViT), showing that a pure transformer applied to sequences of image patches can match or beat convolutional networks on image classification.</p>
+      <ul class="paper-tags">
+        <li class="paper-tag">machine-learning</li>
+        <li class="paper-tag">computer-vision</li>
+        <li class="paper-tag">transformers</li>
+      </ul>
+    </li>
+    <li class="paper-card" data-tags="machine-learning, llm, inference-scaling, stanford-cs329a">
+      <h3 class="paper-title"><a href="https://arxiv.org/abs/2407.21787" target="_blank" rel="noopener">Large Language Monkeys: Scaling Inference Compute with Repeated Sampling</a></h3>
+      <p class="paper-meta">Brown et al. (Stanford) &mdash; shows that repeatedly sampling multiple solutions from a language model improves coverage log-linearly with sample count, driving large gains on coding and reasoning benchmarks.</p>
+      <ul class="paper-tags">
+        <li class="paper-tag">machine-learning</li>
+        <li class="paper-tag">llm</li>
+        <li class="paper-tag">inference-scaling</li>
+        <li class="paper-tag">stanford-cs329a</li>
+      </ul>
     </li>
   </ul>
 </section>
+
+<script>
+  (function () {
+    var searchInput = document.getElementById('papers-search-input');
+    var tagFiltersEl = document.getElementById('papers-tag-filters');
+    var list = document.getElementById('papers-list');
+    var emptyState = document.getElementById('papers-empty');
+    if (!searchInput || !list) return;
+
+    var cards = Array.prototype.slice.call(list.querySelectorAll('.paper-card'));
+    var activeTag = null;
+
+    // Build the tag filter chips from every tag present on the page.
+    var allTags = [];
+    cards.forEach(function (card) {
+      (card.getAttribute('data-tags') || '').split(',').forEach(function (tag) {
+        tag = tag.trim();
+        if (tag && allTags.indexOf(tag) === -1) allTags.push(tag);
+      });
+    });
+    allTags.sort();
+
+    allTags.forEach(function (tag) {
+      var chip = document.createElement('button');
+      chip.type = 'button';
+      chip.className = 'papers-tag-filter';
+      chip.textContent = tag;
+      chip.setAttribute('data-tag', tag);
+      chip.addEventListener('click', function () {
+        activeTag = activeTag === tag ? null : tag;
+        Array.prototype.forEach.call(tagFiltersEl.children, function (el) {
+          el.classList.toggle('is-active', el.getAttribute('data-tag') === activeTag);
+        });
+        applyFilters();
+      });
+      tagFiltersEl.appendChild(chip);
+    });
+
+    function applyFilters() {
+      var query = searchInput.value.trim().toLowerCase();
+      var visibleCount = 0;
+
+      cards.forEach(function (card) {
+        var haystack = card.textContent.toLowerCase();
+        var tags = (card.getAttribute('data-tags') || '').split(',').map(function (t) { return t.trim(); });
+        var matchesQuery = !query || haystack.indexOf(query) !== -1;
+        var matchesTag = !activeTag || tags.indexOf(activeTag) !== -1;
+        var visible = matchesQuery && matchesTag;
+        card.hidden = !visible;
+        if (visible) visibleCount++;
+      });
+
+      emptyState.hidden = visibleCount !== 0;
+    }
+
+    searchInput.addEventListener('input', applyFilters);
+  })();
+</script>
