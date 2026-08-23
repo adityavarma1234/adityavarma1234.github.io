@@ -458,6 +458,10 @@ ul.posts li span:first-child {
     color: var(--text-muted);
     font-style: italic;
 }
+.papers-subheading {
+    font-size: 1.1em;
+    margin: 24px 0 0;
+}
 .papers-list {
     margin: 16px 0 0;
     padding: 0;
@@ -539,6 +543,33 @@ ul.posts li span:first-child {
     color: var(--text-muted);
     font-style: italic;
     margin: 16px 0 0;
+}
+
+/* Quotes */
+.quotes-list {
+    margin: 24px 0 0;
+    padding: 0;
+    list-style: none;
+}
+.quote-card {
+    padding: 16px;
+    margin-bottom: 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--bg-alt);
+}
+.quote-text {
+    margin: 0;
+    padding: 0;
+    border: none;
+    font-size: 1.1em;
+    line-height: 1.5;
+    font-style: italic;
+}
+.quote-author {
+    color: var(--text-muted);
+    font-size: 0.9em;
+    margin: 8px 0 0;
 }
 
 /* Responsive */
