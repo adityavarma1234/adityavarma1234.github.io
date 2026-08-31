@@ -19,7 +19,33 @@ title: Research Papers
   </div>
   <p id="papers-empty" class="papers-empty" hidden>No papers match your search.</p>
 
-  <ul class="papers-list" id="papers-list">
+  <h3 class="papers-subheading">Read</h3>
+  <ul class="papers-list" id="papers-list-read">
+    <li class="paper-card" data-tags="machine-learning, llm, benchmarks, software-engineering">
+      <h3 class="paper-title"><a href="https://arxiv.org/pdf/2502.12115" target="_blank" rel="noopener">SWE-Lancer: Can Frontier LLMs Earn $1 Million from Real-World Freelance Software Engineering?</a></h3>
+      <p class="paper-meta">Miserendino et al. (OpenAI) &mdash; introduces a benchmark of over 1,400 real freelance software engineering tasks from Upwork worth $1M in payouts, finding frontier models still fail to solve the majority of tasks despite the strong economic framing.</p>
+      <ul class="paper-tags">
+        <li class="paper-tag">machine-learning</li>
+        <li class="paper-tag">llm</li>
+        <li class="paper-tag">benchmarks</li>
+        <li class="paper-tag">software-engineering</li>
+      </ul>
+    </li>
+    <li class="paper-card" data-tags="machine-learning, llm, agents, software-engineering, systems">
+      <h3 class="paper-title"><a href="https://arxiv.org/abs/2604.26275" target="_blank" rel="noopener">Agentic AI in the Software Development Lifecycle: Architecture, Empirical Evidence, and the Reshaping of Software Engineering</a></h3>
+      <p class="paper-meta">Bhati &mdash; proposes a six-layer reference architecture for agentic software engineering systems and consolidates evidence of SWE-bench Verified performance rising from 1.96% to 78.4% between October 2023 and April 2026, alongside 13.6&ndash;55.8% productivity gains in controlled studies.</p>
+      <ul class="paper-tags">
+        <li class="paper-tag">machine-learning</li>
+        <li class="paper-tag">llm</li>
+        <li class="paper-tag">agents</li>
+        <li class="paper-tag">software-engineering</li>
+        <li class="paper-tag">systems</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h3 class="papers-subheading">To Read</h3>
+  <ul class="papers-list" id="papers-list-to-read">
     <li class="paper-card" data-tags="databases, columnar-storage, systems">
       <h3 class="paper-title"><a href="https://web.stanford.edu/class/cs345d-01/rl/cstore.pdf" target="_blank" rel="noopener">C-Store: A Column-oriented DBMS</a></h3>
       <p class="paper-meta">Stonebraker et al. &mdash; the foundational paper introducing the column-oriented DBMS architecture.</p>
@@ -441,11 +467,13 @@ title: Research Papers
   (function () {
     var searchInput = document.getElementById('papers-search-input');
     var tagFiltersEl = document.getElementById('papers-tag-filters');
-    var list = document.getElementById('papers-list');
+    var lists = Array.prototype.slice.call(document.querySelectorAll('.papers-list'));
     var emptyState = document.getElementById('papers-empty');
-    if (!searchInput || !list) return;
+    if (!searchInput || !lists.length) return;
 
-    var cards = Array.prototype.slice.call(list.querySelectorAll('.paper-card'));
+    var cards = lists.reduce(function (acc, list) {
+      return acc.concat(Array.prototype.slice.call(list.querySelectorAll('.paper-card')));
+    }, []);
     var activeTag = null;
 
     // Build the tag filter chips from every tag present on the page.
@@ -486,6 +514,14 @@ title: Research Papers
         var visible = matchesQuery && matchesTag;
         card.hidden = !visible;
         if (visible) visibleCount++;
+      });
+
+      lists.forEach(function (list) {
+        var listVisibleCount = list.querySelectorAll('.paper-card:not([hidden])').length;
+        var heading = list.previousElementSibling;
+        if (heading && heading.classList.contains('papers-subheading')) {
+          heading.hidden = listVisibleCount === 0;
+        }
       });
 
       emptyState.hidden = visibleCount !== 0;
